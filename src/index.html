@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="app-name"><h3>To-Do</h3></li>
+        <li class="today">
+          <h3>Today</h3>
+          <p class="due">Due Date</p>
+        </li>
+        <li class="lists">
+          <h3>Lists</h3>
+        </li>
+        <li>
+          <ul class="priority">
+            <li id="high">High Priority</li>
+            <li id="med">Medium Priority</li>
+            <li id="low">Low Priority</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="content">
+      <div class="card">
+        <div class="header">
+          <div class="header-left">
+            <input type="checkbox" id="finish" />
+            <h1 class="title">Project Title</h1>
+          </div>
+          <div class="header-right">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority">
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <button class="delete-card-btn">Delete Project</button>
+          </div>
+        </div>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in
+            urna a nisi efficitur gravida.
+          </p>
+        </div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-text">
+              <input type="checkbox" id="finish" />
+              <p>Task here</p>
+            </div>
+            <div>
+              <button class="edit-btn">edit button</button>
+              <button class="del-btn">delete button</button>
+            </div>
+          </div>
+          <div class="task">
+            <div class="task-text">
+              <input type="checkbox" id="finish" />
+              <p>Task here</p>
+            </div>
+            <div>
+              <button class="edit-btn">edit button</button>
+              <button class="del-btn">delete button</button>
+            </div>
+          </div>
+          <div class="task">
+            <div class="task-text">
+              <input type="checkbox" id="finish" />
+              <p>Task here</p>
+            </div>
+            <div>
+              <button class="edit-btn">edit button</button>
+              <button class="del-btn">delete button</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="mark-card-finish-btn">Mark finished</button>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <a class="links" href="https://github.com/AllanChen-eng">
+        Create by Allan</a
+      >
+    </div>
+  </body>
 </html>
