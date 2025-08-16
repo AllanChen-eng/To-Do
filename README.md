@@ -4,11 +4,15 @@ Live Preview: TBD
 
 Learning Outcome: Local Storage, Dom manipulation, SOLID design principles, Loose Coupling.
 
-Progress:
-- [ ] Title, description, due date and priority for notecards
-- [ ] Projects/different to-do lists
-- [ ] Add to-dos and delete to-dos
-- [ ] Local Storage
+Progress on features:
+- [ ] Title, description, due date and priority for projects
+- [ ] Add new project task
+- [ ] Delete task
+- [ ] Edit task
+- [ ] Set project priority
+- [ ] Delete project
+- [ ] Add project
+- [ ] Local storage
 
 Further Development:
 - [ ] Change color based on priorities 
