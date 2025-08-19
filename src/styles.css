@@ -42,6 +42,10 @@ nav ul li {
   align-items: center;
   justify-content: space-between;
 }
+.projects{
+  display: flex;
+  justify-content: space-around;
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -57,6 +61,17 @@ nav ul li {
   display: flex;
   align-items: center;
 }
+.header-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.description{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 16px;
+    margin-top: 16px;
+}
 .task{
     border-bottom: 1px solid gray;
     margin-right: 16px;
@@ -70,7 +85,7 @@ nav ul li {
 }
 .card-footer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 16px;
 }
 #footer {
