@@ -2,7 +2,7 @@
 
 Live Preview: TBD
 
-Learning Outcome: Local Storage, Dom manipulation, SOLID design principles, Loose Coupling.
+Learning Outcome: Local Storage, Dom Manipulation, SOLID design principles, Loose Coupling, Modular Design Principles.
 
 Progress on features:
 - [ ] Title, description, due date and priority for projects
@@ -10,8 +10,12 @@ Progress on features:
 - [ ] Delete task
 - [ ] Edit task
 - [ ] Set project priority
+- [ ] Check-off/finish tasks
+- [ ] Mark project as as finished
+- [ ] Select between multiple projects and today lists
 - [ ] Delete project
-- [ ] Add project
+- [ ] Add new project
+- [ ] Dynamic sidebar - project labeling based on priority
 - [ ] Local storage
 
 Further Development:
