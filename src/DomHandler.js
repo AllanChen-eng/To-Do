@@ -32,5 +32,14 @@ export function ProjectpageUI(){
         task.append(taskLeft, buttonContainer);
         taskList.append(task);
     }
-    return {addTask,createProductPage};
+    const updateProjectTitle = (newTitle) =>{
+        const title = document.querySelector(".title");
+        title.textContent = newTitle;
+
+    }
+    const updateProjectDescription = (description) =>{
+        const about = document.querySelector(".description p");
+        about.textContent = description;
+    }
+    return {addTask,createProductPage,updateProjectTitle, updateProjectDescription};
 }

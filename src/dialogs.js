@@ -27,5 +27,34 @@ const setTaskDialog = () =>{
         dialog.close();
     })
 }
-    return{setTaskDialog};
+const setEditProjectDialog = () =>{
+const changeProjectBtn = document.querySelector(".edit-project-btn");
+const dialogID = document.querySelector("#edit-project-dialog");
+const editForm = document.querySelector(".edit-project-form");
+const titleInput = document.querySelector("#change-title");
+const descriptionInput = document.querySelector("#change-description");
+const cancelBtn = document.querySelector("#cancel-project-edit-dialog");
+
+changeProjectBtn.addEventListener("click", ()=>{
+    descriptionInput.value = currentProject.getDescription();
+    titleInput.value = currentProject.getTitle();
+    dialogID.showModal();
+})
+cancelBtn.addEventListener("click",()=>{
+    dialogID.close();
+})
+
+editForm.addEventListener("submit", (e) =>{
+    e.preventDefault();
+    const newTitle = titleInput.value;
+    const description = descriptionInput.value;
+    currentProject.changeTitle(newTitle);
+    currentProject.changeDescription(description);
+    ui.updateProjectTitle(newTitle);
+    ui.updateProjectDescription(description);
+    dialogID.close();
+})
+
+}
+    return{setTaskDialog, setEditProjectDialog};
 }

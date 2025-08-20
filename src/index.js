@@ -11,6 +11,7 @@ const ui = ProjectpageUI();
 let currentProject = new project();
 const dialog = setDialog(currentProject);
 dialog.setTaskDialog();
+dialog.setEditProjectDialog();
 function curentView(){
     let currentView;
     const setCurrentView = () =>{

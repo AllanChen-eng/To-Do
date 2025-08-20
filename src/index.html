@@ -15,7 +15,7 @@
         </li>
         <li class="projects">
           <h3>Projects</h3>
-          <button class="add-project-btn"> add project</button>
+          <button class="add-project-btn">add project</button>
         </li>
         <li>
           <ul class="priority">
@@ -40,13 +40,12 @@
               <option value="medium">Medium</option>
               <option value="low">Low</option>
             </select>
-            <button class="delete-card-btn">Delete Project</button>
+            <button class="edit-project-btn">Edit Project</button>
           </div>
         </div>
         <div class="description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in
-            urna a nisi efficitur gravida.
+            My Project
           </p>
         </div>
         <div class="task-list">
@@ -92,21 +91,37 @@
         Create by Allan</a
       >
     </div>
-    <dialog class = "dialog" id="task-dialog">
-          <form class="task-form">
-            <p>
-              <label for="task">Task: </label>
-              <input type="text" id="addTask" name="task" />
-            </p>
-            <div>
-              <button id="cancelDialog" value="cancel" type="button">
-                Cancel
-              </button>
-              <button type="submit" id="confirmBtn" value="default">
-                Add Task
-              </button>
-            </div>
-          </form>
-        </dialog>
+    <dialog class="dialog" id="task-dialog">
+      <form class="task-form">
+        <p>
+          <input type="text" id="addTask" name="task" placeholder="task" />
+        </p>
+        <div>
+          <button id="cancelDialog" value="cancel" type="button">Cancel</button>
+          <button type="submit" id="confirmBtn" value="default">
+            Add Task
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="edit-project-dialog">
+      <form class="edit-project-form">
+        <p>
+          <label for="project-title">Project Title: </label>
+          <input type="text" id="change-title" name="project-title" />
+        </p>
+        <p>
+          <label for="task">Project Description: </label>
+          <textarea id="change-description" name="task" rows="5" cols="40"></textarea>
+        </p>
+        <div>
+          <button id="cancel-project-edit-dialog" value="cancel" type="button">Cancel</button>
+          <button type="submit" id="confirmBtn" value="default">
+            Accept
+          </button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
