@@ -35,4 +35,10 @@ export class project {
   changeDescription(bigText){
     this.description = bigText;
   }
+  getPriority(){
+    return this.priority;
+  }
+  changePriority(prior){
+    this.priority = prior;
+  }
 }

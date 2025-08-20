@@ -3,7 +3,7 @@ import { buttonManager } from "./buttonManager.js";
 import { taskManager } from "./taskManager.js";
 import { task } from "./task.js";
 import { project } from "./project.js";
-import { ProjectpageUI } from "./DomHandler.js";
+import { ProjectpageUI } from "./UIHandler.js";
 import { setDialog } from "./dialogs.js";
 
 const ui = ProjectpageUI();
@@ -12,6 +12,7 @@ let currentProject = new project();
 const dialog = setDialog(currentProject);
 dialog.setTaskDialog();
 dialog.setEditProjectDialog();
+dialog.setPriorityOptions();
 function curentView(){
     let currentView;
     const setCurrentView = () =>{

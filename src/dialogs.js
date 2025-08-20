@@ -1,5 +1,5 @@
 import { task } from "./task";
-import { ProjectpageUI } from "./DomHandler.js";
+import { ProjectpageUI } from "./UIHandler.js";
 const ui = ProjectpageUI();
 
 export function setDialog(project){
@@ -21,7 +21,6 @@ const setTaskDialog = () =>{
     form.addEventListener("submit",(e)=>{
         e.preventDefault();
         const projectTask = task(newTask.value);
-        console.log("adding " + newTask.value + "to current project");
         currentProject.addTask(projectTask);
         ui.addTask(newTask.value);
         dialog.close();
@@ -56,5 +55,11 @@ editForm.addEventListener("submit", (e) =>{
 })
 
 }
-    return{setTaskDialog, setEditProjectDialog};
+const setPriorityOptions = () =>{
+    const options = document.querySelector("#project-priority");
+    options.addEventListener("change",()=>{
+        currentProject.changePriority(options.value);
+    })
+}
+    return{setTaskDialog, setEditProjectDialog, setPriorityOptions};
 }
