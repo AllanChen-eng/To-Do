@@ -10,11 +10,11 @@ export const taskManager = () => {
         var newTask = task(description);
         taskList.push();
     }
-
-    const createAddTaskButton = ()=>{
-       const btn = btnManager.createButton(document.createTextNode("Add Task"),"add-task-btn"); // change this to text after
+    const deleteTask = (index) =>{
+        if(taskList.length>index && index>=0){
+            taskList.splice(index,1);
+        }
     }
-
-    return{ createAddTaskButton, createTask};
+    return{createTask};
 
 }

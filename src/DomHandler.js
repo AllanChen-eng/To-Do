@@ -1,4 +1,7 @@
 export function ProjectpageUI(){
+    const createProductPage = (project) =>{
+
+    }
     const addTask = (description) => {
         const taskList = document.querySelector(".task-list");
         const task = document.createElement("div");
@@ -29,5 +32,5 @@ export function ProjectpageUI(){
         task.append(taskLeft, buttonContainer);
         taskList.append(task);
     }
-    return {addTask};
+    return {addTask,createProductPage};
 }
