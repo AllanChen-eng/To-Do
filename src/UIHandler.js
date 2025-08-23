@@ -2,10 +2,11 @@ export function ProjectpageUI(){
     const createProductPage = (project) =>{
 
     }
-    const addTask = (description) => {
+    const addTask = (projectTask, project) => {
         const taskList = document.querySelector(".task-list");
         const task = document.createElement("div");
         task.classList.add("task");
+        task.dataset.id = projectTask.getID();
 
         const taskLeft = document.createElement("div");
         taskLeft.classList.add("task-text");
@@ -15,7 +16,7 @@ export function ProjectpageUI(){
         checkbox.id = "finish";
 
         const taskTitle = document.createElement("p");
-        taskTitle.textContent = description;
+        taskTitle.textContent = projectTask.getJob();
         
         taskLeft.append(checkbox, taskTitle);
 
@@ -26,13 +27,20 @@ export function ProjectpageUI(){
         const delBtn = document.createElement("button");
         delBtn.classList.add("del-btn");
         delBtn.textContent = "delete button";
+        delBtn.dataset.id = projectTask.getID();
+        delBtn.addEventListener("click", (e)=>{
+             const index = e.target.dataset.id;
+             const content = document.querySelector(`.task[data-id="${index}"]`);
+             project.removeTask(index);
+             content.remove();
+        })
 
         buttonContainer.append(editBtn, delBtn);
 
         task.append(taskLeft, buttonContainer);
         taskList.append(task);
     }
-    const updateProjectTitle = (newTitle) =>{
+    const setProjectTitle = (newTitle) =>{
         const title = document.querySelector(".title");
         title.textContent = newTitle;
 
@@ -41,5 +49,5 @@ export function ProjectpageUI(){
         const about = document.querySelector(".description p");
         about.textContent = description;
     }
-    return {addTask,createProductPage,updateProjectTitle, updateProjectDescription};
+    return {addTask,createProductPage,setProjectTitle, updateProjectDescription};
 }
