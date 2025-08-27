@@ -9,6 +9,7 @@ const ui = ProjectpageUI();
 let currentProject = new project();
 const dialog = setDialog(currentProject);
 dialog.setAddTaskDialog();
+dialog.setEditTaskDialog();
 dialog.setEditProjectDialog();
 dialog.setPriorityOptions();
 dialog.setCompletionBtn();

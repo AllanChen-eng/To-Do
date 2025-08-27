@@ -31,6 +31,15 @@ export function ProjectpageUI() {
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-btn");
     editBtn.textContent = "edit button";
+    editBtn.dataset.id = projectTask.getID();
+    editBtn.addEventListener("click", (e) => {
+      const dialog = document.querySelector("#edit-task-dialog");
+      const taskInput = document.querySelector("#edit-task");
+      project.setCurrentTask(projectTask);
+      console.log("project job:" + projectTask.getJob());
+      taskInput.value = projectTask.getJob();
+      dialog.showModal();
+    });
     const delBtn = document.createElement("button");
     delBtn.classList.add("del-btn");
     delBtn.textContent = "delete button";

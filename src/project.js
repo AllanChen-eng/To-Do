@@ -16,6 +16,7 @@ export class project {
     this.taskManager = [];
     this.projectCompletion = false;
     this.counter = 0;
+    this.currentTask = "";
   }
   getTitle() {
     return this.title;
@@ -52,14 +53,14 @@ export class project {
     this.taskManager.push(newTask);
     ui.addTask(newTask, this);
   }
+  getTask(taskID) {
+    return this.taskManager.find((task) => task.getID() == taskID);
+  }
   removeTask(taskID) {
     const index = this.taskManager.findIndex((task) => task.getID() == taskID);
     if (index != -1) {
       this.taskManager.splice(index, 1);
     }
-  }
-  getTask(taskID) {
-    return this.taskManager.find((task) => task.getID() == taskID);
   }
   setTaskCompletion(taskID, newValue) {
     const index = this.taskManager.findIndex((task) => task.getID() == taskID);
@@ -68,5 +69,11 @@ export class project {
   }
   getCounter() {
     return this.counter;
+  }
+  setCurrentTask(newTask){
+    this.currentTask = newTask;
+  }
+  getCurrentTask(){
+    return this.currentTask;
   }
 }

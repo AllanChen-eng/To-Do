@@ -20,6 +20,27 @@ export function setDialog(project) {
       dialog.close();
     });
   };
+  const setEditTaskDialog = () => {
+    const dialog = document.querySelector("#edit-task-dialog");
+    const editForm = document.querySelector(".edit-task-form");
+    const taskInput = document.querySelector("#edit-task");
+    const cancelBtn = document.querySelector("#cancelTaskEditDialog");
+
+    cancelBtn.addEventListener("click", () => {
+      dialog.close();
+    });
+    editForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      var currentTask = currentProject.getCurrentTask();
+      var index = currentTask.getID();
+      const p = document.querySelector(`.task[data-id="${index}"] p`);
+      if(!p) console.log( "didnt find p");
+      p.textContent = taskInput.value;
+      currentTask.setJob(taskInput.value);
+      console.log("Changed");
+      dialog.close();
+    });
+  };
   const setEditProjectDialog = () => {
     const changeProjectBtn = document.querySelector(".edit-project-btn");
     const dialogID = document.querySelector("#edit-project-dialog");
@@ -63,6 +84,7 @@ export function setDialog(project) {
   };
   return {
     setAddTaskDialog,
+    setEditTaskDialog,
     setEditProjectDialog,
     setPriorityOptions,
     setCompletionBtn,

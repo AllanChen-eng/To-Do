@@ -9,6 +9,9 @@ export const task = (title) => {
   const getJob = () => {
     return job;
   };
+  const setJob = (newJob) =>{
+    job = newJob;
+  }
   const getID = () => {
     return id;
   };
@@ -21,5 +24,5 @@ export const task = (title) => {
   const getCompletion = () =>{
     return completion
   }
-  return { editTask, getJob, getID, setID, getCompletion, setCompletion};
+  return { editTask, getJob, setJob, getID, setID, getCompletion, setCompletion};
 };
