@@ -1,11 +1,8 @@
 export const task = (title) => {
-  let checkbox = false;
+  let completion = false;
   let job = title;
   let id;
-  const changeCheckbox = () => {
-    if (checkbox == false) checkbox == true;
-    else checkbox == false;
-  };
+
   const editTask = (newJob) => {
     job = newJob;
   };
@@ -18,5 +15,11 @@ export const task = (title) => {
   const setID = (num) => {
     id = num;
   };
-  return { editTask, changeCheckbox, getJob, getID, setID};
+  const setCompletion = (newValue) =>{
+    completion = newValue;
+  }
+  const getCompletion = () =>{
+    return completion
+  }
+  return { editTask, getJob, getID, setID, getCompletion, setCompletion};
 };

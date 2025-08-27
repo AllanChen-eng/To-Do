@@ -13,56 +13,60 @@ export class project {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.taskManager = []
+    this.taskManager = [];
     this.projectCompletion = false;
     this.counter = 0;
   }
-  getTitle(){
+  getTitle() {
     return this.title;
   }
   changeTitle(newTitle) {
     this.title = newTitle;
     ui.setProjectTitle(newTitle);
   }
-  getDescription(){
+  getDescription() {
     return this.description;
   }
-  changeDescription(bigText){
+  changeDescription(bigText) {
     this.description = bigText;
     ui.updateProjectDescription(bigText);
   }
-  getPriority(){
+  getPriority() {
     return this.priority;
   }
-  changePriority(prior){
+  changePriority(prior) {
     this.priority = prior;
   }
-  swapProjectCompletion(){
-    if(this.projectCompletion == false) this.projectCompletion = true;
+  swapProjectCompletion() {
+    if (this.projectCompletion == false) this.projectCompletion = true;
     else this.projectCompletion = false;
   }
-  getCompletion(){
+  getCompletion() {
     return this.projectCompletion;
   }
-  addTask(description){
-    if(description == null || description == "") return;
-    this.counter ++;
+  addTask(description) {
+    if (description == null || description == "") return;
     var newTask = task(description);
     newTask.setID(this.counter);
+    this.counter++;
     this.taskManager.push(newTask);
     ui.addTask(newTask, this);
   }
-  removeTask(taskID){
-  const index = this.taskManager.findIndex(task => task.getID() === taskID);
-  console.log("Removing:" + taskID);
-  if (index !== -1) {
-    this.taskManager.splice(index, 1);
+  removeTask(taskID) {
+    const index = this.taskManager.findIndex((task) => task.getID() == taskID);
+    if (index != -1) {
+      this.taskManager.splice(index, 1);
+    }
   }
+  getTask(taskID) {
+    return this.taskManager.find((task) => task.getID() == taskID);
   }
-  getTask(taskID){
-    return this.taskManager.find(task => task.getID() == taskID);
+  setTaskCompletion(taskID, newValue) {
+    const index = this.taskManager.findIndex((task) => task.getID() == taskID);
+    console.log(this.taskManager);
+    this.taskManager[index].setCompletion(newValue);
   }
-  getCounter(){
+  getCounter() {
     return this.counter;
   }
 }

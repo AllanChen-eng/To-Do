@@ -1,5 +1,3 @@
-
-
 export function setDialog(project) {
   const currentProject = project;
   const setAddTaskDialog = () => {
@@ -10,6 +8,7 @@ export function setDialog(project) {
     const newTask = document.querySelector("#addTask");
 
     addTaskBtn.addEventListener("click", () => {
+      newTask.value = "";
       dialog.showModal();
     });
     cancelBtn.addEventListener("click", () => {
