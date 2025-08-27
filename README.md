@@ -7,11 +7,11 @@ Learning Outcome: Local Storage, Dom Manipulation, SOLID design principles, Loos
 Progress on features:
 - [x] Title, description, due date and priority for projects
 - [x] Add new project task
-- [ ] Delete task
+- [x] Delete task
 - [ ] Edit task
-- [ ] Set project priority
+- [x] Set project priority
 - [ ] Check-off/finish tasks
-- [ ] Mark project as as finished
+- [ ] Mark project as finished
 - [x] Edit project title/description
 - [ ] Select between multiple projects and today lists
 - [ ] Delete project
