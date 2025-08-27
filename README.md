@@ -8,7 +8,7 @@ Progress on features:
 - [x] Title, description, due date and priority for projects
 - [x] Add new project task
 - [x] Delete task
-- [ ] Edit task
+- [x] Edit task
 - [x] Set project priority
 - [x] Check-off/finish tasks
 - [ ] Mark project as finished
