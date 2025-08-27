@@ -11,7 +11,7 @@ Progress on features:
 - [x] Edit task
 - [x] Set project priority
 - [x] Check-off/finish tasks
-- [ ] Mark project as finished
+- [x] Mark project as finished
 - [x] Edit project title/description
 - [ ] Select between multiple projects and today lists
 - [ ] Delete project
