@@ -42,11 +42,21 @@ export function ProjectpageUI() {
     const optionMedium = document.createElement("option");
     optionMedium.value = "medium";
     optionMedium.textContent = "Medium";
-    optionMedium.selected = true;
 
     const optionLow = document.createElement("option");
     optionLow.value = "low";
     optionLow.textContent = "Low";
+    switch (project.getPriority()) {
+      case "high":
+        optionHigh.selected = true;
+        break;
+      case "medium":
+        optionMedium.selected = true;
+        break;
+      case "low":
+        optionLow.selected = true;
+        break;
+    }
 
     prioritySelect.append(optionHigh, optionMedium, optionLow);
 
