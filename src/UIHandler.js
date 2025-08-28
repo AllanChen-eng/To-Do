@@ -1,5 +1,100 @@
+import { setDialog } from "./UserDialogs";
+
 export function ProjectpageUI() {
-  const createProductPage = (project) => {};
+  const content = document.querySelector("#content");
+  const createProjectPage = (project) => {
+    const dialog = setDialog(project);
+
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const header = document.createElement("div");
+    header.classList.add("header");
+
+    const headerLeft = document.createElement("div");
+    headerLeft.classList.add("header-left");
+
+    const projectCheckbox = document.createElement("input");
+    projectCheckbox.type = "checkbox";
+    projectCheckbox.id = "finish";
+
+    const projectTitle = document.createElement("h1");
+    projectTitle.classList.add("title");
+    projectTitle.textContent = project.getTitle();
+
+    headerLeft.append(projectCheckbox, projectTitle);
+
+    const headerRight = document.createElement("div");
+    headerRight.classList.add("header-right");
+
+    const priorityLabel = document.createElement("label");
+    priorityLabel.htmlFor = "priority";
+    priorityLabel.textContent = "Priority:";
+
+    const prioritySelect = document.createElement("select");
+    prioritySelect.id = "project-priority";
+    prioritySelect.name = "priority";
+
+    const optionHigh = document.createElement("option");
+    optionHigh.value = "high";
+    optionHigh.textContent = "High";
+
+    const optionMedium = document.createElement("option");
+    optionMedium.value = "medium";
+    optionMedium.textContent = "Medium";
+    optionMedium.selected = true;
+
+    const optionLow = document.createElement("option");
+    optionLow.value = "low";
+    optionLow.textContent = "Low";
+
+    prioritySelect.append(optionHigh, optionMedium, optionLow);
+
+    const editProjectBtn = document.createElement("button");
+    editProjectBtn.classList.add("edit-project-btn");
+    editProjectBtn.textContent = "Edit Project";
+
+    headerRight.append(priorityLabel, prioritySelect, editProjectBtn);
+
+    header.append(headerLeft, headerRight);
+
+    const description = document.createElement("div");
+    description.classList.add("description");
+
+    const descriptionText = document.createElement("p");
+    descriptionText.textContent = project.getDescription();
+
+    description.append(descriptionText);
+
+    const taskList = document.createElement("div");
+    taskList.classList.add("task-list");
+
+    const cardFooter = document.createElement("div");
+    cardFooter.classList.add("card-footer");
+
+    const addTaskBtn = document.createElement("button");
+    addTaskBtn.classList.add("add-task-btn");
+    addTaskBtn.textContent = "Add task";
+
+    const markFinishBtn = document.createElement("button");
+    markFinishBtn.classList.add("mark-project-finish-btn");
+    markFinishBtn.textContent = "Mark finished";
+
+    cardFooter.append(addTaskBtn, markFinishBtn);
+
+    card.append(header, description, taskList, cardFooter);
+    content.append(card);
+
+    populateTaskList(project);
+    dialog.setProjectBtns();
+    console.log("completed setting dialogs");
+  };
+  const populateTaskList = (project) => {
+    const list = project.getAllTasks();
+    list.forEach((task) => {
+      addTask(task, project);
+    });
+  };
   const addTask = (projectTask, project) => {
     const taskList = document.querySelector(".task-list");
     const task = document.createElement("div");
@@ -64,10 +159,23 @@ export function ProjectpageUI() {
     const about = document.querySelector(".description p");
     about.textContent = description;
   };
+  const deletePage = () => {
+    content.innerHTML = "";
+  };
+  const resetPage = (project) => {
+    const reset = document.querySelector(".add-project-btn");
+    reset.addEventListener("click", () => {
+      deletePage();
+      createProjectPage(project);
+    });
+  };
   return {
     addTask,
-    createProductPage,
+    createProjectPage,
+    populateTaskList,
     setProjectTitle,
     updateProjectDescription,
+    deletePage,
+    resetPage,
   };
 }

@@ -45,6 +45,9 @@ export class project {
   getCompletion() {
     return this.projectCompletion;
   }
+  getAllTasks(){
+    return this.taskManager;
+  }
   addTask(description) {
     if (description == null || description == "") return;
     var newTask = task(description);

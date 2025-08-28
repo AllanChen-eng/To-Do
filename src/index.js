@@ -13,6 +13,8 @@ dialog.setEditTaskDialog();
 dialog.setEditProjectDialog();
 dialog.setPriorityOptions();
 dialog.setCompletionBtn();
+dialog.setProjectBtns();
+ui.resetPage(currentProject);
 function curentView(){
     let currentView;
     const setCurrentView = () =>{
