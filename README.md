@@ -8,10 +8,10 @@ Progress on features:
 - [x] Title, description, due date and priority for projects
 - [x] Add new project task
 - [x] Delete task
-- [ ] Edit task
+- [x] Edit task
 - [x] Set project priority
 - [x] Check-off/finish tasks
-- [ ] Mark project as finished
+- [x] Mark project as finished
 - [x] Edit project title/description
 - [ ] Select between multiple projects and today lists
 - [ ] Delete project
