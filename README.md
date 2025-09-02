@@ -22,4 +22,5 @@ Progress on features:
 Further Development:
 - [ ] Change color based on priorities 
 - [ ] Expand to-do for details/notes
-- [ ] Change position of tasks
+- [ ] Allow user to change position of tasks
+- [ ] More options when creating a new project
