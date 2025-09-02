@@ -13,9 +13,9 @@ Progress on features:
 - [x] Check-off/finish tasks
 - [x] Mark project as finished
 - [x] Edit project title/description
-- [ ] Select between multiple projects and today lists
+- [x] Select between multiple projects and today lists
 - [ ] Delete project
-- [ ] Add new project
+- [x] Add new project
 - [ ] Dynamic sidebar - project labeling based on priority
 - [ ] Local storage
 
