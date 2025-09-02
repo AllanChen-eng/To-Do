@@ -2,10 +2,10 @@ import { ProjectpageUI } from "./UIHandler.js";
 import { task } from "./task.js";
 const ui = ProjectpageUI();
 
-export class project {
+export class Project {
   constructor(
     title = "Project Title",
-    description = "My Project",
+    description = "My Project Description",
     dueDate = "0/0",
     priority = "med"
   ) {
@@ -67,7 +67,6 @@ export class project {
   }
   setTaskCompletion(taskID, newValue) {
     const index = this.taskManager.findIndex((task) => task.getID() == taskID);
-    console.log(this.taskManager);
     this.taskManager[index].setCompletion(newValue);
   }
   getCounter() {

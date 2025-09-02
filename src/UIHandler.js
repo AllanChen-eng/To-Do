@@ -97,7 +97,6 @@ export function ProjectpageUI() {
 
     populateTaskList(project);
     dialog.setProjectBtns();
-    console.log("completed setting dialogs");
   };
   const populateTaskList = (project) => {
     const list = project.getAllTasks();
@@ -141,7 +140,6 @@ export function ProjectpageUI() {
       const dialog = document.querySelector("#edit-task-dialog");
       const taskInput = document.querySelector("#edit-task");
       project.setCurrentTask(projectTask);
-      console.log("project job:" + projectTask.getJob());
       taskInput.value = projectTask.getJob();
       dialog.showModal();
     });
@@ -179,6 +177,15 @@ export function ProjectpageUI() {
       createProjectPage(project);
     });
   };
+  const addProjectToTaskbar = (project) =>{
+    const element = document.createElement("li");
+    element.textContent = project.getTitle();
+    element.addEventListener("click", () =>{
+      deletePage();
+      createProjectPage(project);
+    });
+    document.querySelector(".project-list").append(element);
+  };
   return {
     addTask,
     createProjectPage,
@@ -187,5 +194,6 @@ export function ProjectpageUI() {
     updateProjectDescription,
     deletePage,
     resetPage,
+    addProjectToTaskbar
   };
 }

@@ -1,5 +1,34 @@
+import { Project } from "./project";
 export function setDialog(project) {
   const currentProject = project;
+  const setNewProjectBtn = (projectManager) =>{
+    const newProject = document.querySelector(".new-project-btn");
+    const dialog = document.getElementById("new-project-dialog");
+    const cancelBtn = document.querySelector("#cancel-new-project-dialog");
+    const form = document.querySelector(".new-project-form");
+
+    const titleValue = document.querySelector("#new-project-title");
+    const descriptionValue = document.querySelector("#new-project-description");
+
+    cancelBtn.addEventListener("click", () =>{
+      dialog.close();
+    })
+    newProject.addEventListener("click",()=>{
+      descriptionValue.value = "My Project Description";
+      dialog.showModal();
+    })
+    form.addEventListener("submit", (e) =>{
+      e.preventDefault();
+      console.log( "titleValue:" + titleValue.value + "description" + descriptionValue.value);
+      let title = titleValue.value;
+      let description = descriptionValue.value;
+      let project = new Project(title,description);
+      projectManager.addProject(project);
+      dialog.close();
+    })
+    //prompt user with dialog
+    //submit info for new project
+  }
   const setAddTaskBtn = () => {
     const dialog = document.getElementById("task-dialog");
     const newTask = document.querySelector("#addTask");
@@ -98,6 +127,7 @@ export function setDialog(project) {
     setCompletionBtn();
   };
   return {
+    setNewProjectBtn,
     setAddTaskDialog,
     setEditTaskDialog,
     setEditProjectDialog,

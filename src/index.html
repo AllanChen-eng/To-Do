@@ -14,8 +14,14 @@
           <p class="due">Due Date</p>
         </li>
         <li class="projects">
-          <h3>Projects</h3>
-          <button class="add-project-btn">delete project</button>
+          <ul class="project-list">
+            <div class="project-header">
+              <h3>Projects</h3>
+              <button class="add-project-btn">reset project</button>
+            </div>
+            <li>project#1</li>
+            <li>project #2</li>
+          </ul>
         </li>
         <li>
           <ul class="priority">
@@ -24,6 +30,7 @@
             <li id="low">Low Priority</li>
           </ul>
         </li>
+        <button class = "new-project-btn"> New Project</button>
       </ul>
     </nav>
     <div id="content">
@@ -44,9 +51,7 @@
           </div>
         </div>
         <div class="description">
-          <p>
-            My Project
-          </p>
+          <p>My Project</p>
         </div>
         <div class="task-list">
           <div class="task" data-id="9999">
@@ -83,15 +88,17 @@
           </button>
         </div>
       </form>
-    </dialog> 
+    </dialog>
 
-       <dialog class="dialog" id="edit-task-dialog">
+    <dialog class="dialog" id="edit-task-dialog">
       <form class="edit-task-form">
         <p>
           <input type="text" id="edit-task" name="task" placeholder="Task" />
         </p>
         <div>
-          <button id="cancelTaskEditDialog" value="cancel" type="button">Cancel</button>
+          <button id="cancelTaskEditDialog" value="cancel" type="button">
+            Cancel
+          </button>
           <button type="submit" id="confirmBtn" value="default">
             Edit Task
           </button>
@@ -107,13 +114,41 @@
         </p>
         <p>
           <label for="task">Project Description: </label>
-          <textarea id="change-description" name="task" rows="5" cols="40"></textarea>
+          <textarea
+            id="change-description"
+            name="description"
+            rows="5"
+            cols="40"
+          ></textarea>
         </p>
         <div>
-          <button id="cancel-project-edit-dialog" value="cancel" type="button">Cancel</button>
-          <button type="submit" id="confirmBtn" value="default">
-            Accept
+          <button id="cancel-project-edit-dialog" value="cancel" type="button">
+            Cancel
           </button>
+          <button type="submit" id="confirmBtn" value="default">Accept</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog class=" dialog" id = "new-project-dialog">
+      <form class = "new-project-form">
+        <p>
+          <label for="new-project-title">Project Title: </label>
+          <input type="text" id="new-project-title" name="new-project-title" placeholder="Title" required />
+        </p>
+        <p>
+          <label for="task">Project Description: </label>
+          <textarea
+            id="new-project-description"
+            name="description"
+            rows="5"
+            cols="40"
+          ></textarea>
+        </p>
+                <div>
+          <button id="cancel-new-project-dialog" value="cancel" type="button">
+            Cancel
+          </button>
+          <button type="submit" id="confirmBtn" value="default">Create</button>
         </div>
       </form>
     </dialog>
