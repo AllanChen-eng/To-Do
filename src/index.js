@@ -7,17 +7,8 @@ import { ProjectManager } from "./ProjectManager.js";
 
 const ui = ProjectpageUI();
 let currentProject = new Project();
-let projectManager = new ProjectManager();
-const dialog = setDialog(currentProject);
-dialog.setAddTaskDialog();
-dialog.setEditTaskDialog();
-dialog.setEditProjectDialog();
-dialog.setPriorityOptions();
-dialog.setCompletionBtn();
-dialog.setProjectBtns();
+let projectManager = new ProjectManager(currentProject);
 
-dialog.setNewProjectBtn(projectManager);
-ui.resetPage(currentProject);
 function curentView(){
     let currentView;
     const setCurrentView = () =>{

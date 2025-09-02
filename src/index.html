@@ -17,10 +17,9 @@
           <ul class="project-list">
             <div class="project-header">
               <h3>Projects</h3>
-              <button class="add-project-btn">reset project</button>
+              <button class="new-project-btn">New Project</button>
             </div>
-            <li>project#1</li>
-            <li>project #2</li>
+            <li>Sample project</li>
           </ul>
         </li>
         <li>
@@ -30,7 +29,6 @@
             <li id="low">Low Priority</li>
           </ul>
         </li>
-        <button class = "new-project-btn"> New Project</button>
       </ul>
     </nav>
     <div id="content">
@@ -129,11 +127,17 @@
         </div>
       </form>
     </dialog>
-    <dialog class=" dialog" id = "new-project-dialog">
-      <form class = "new-project-form">
+    <dialog class="dialog" id="new-project-dialog">
+      <form class="new-project-form">
         <p>
           <label for="new-project-title">Project Title: </label>
-          <input type="text" id="new-project-title" name="new-project-title" placeholder="Title" required />
+          <input
+            type="text"
+            id="new-project-title"
+            name="new-project-title"
+            placeholder="Title"
+            required
+          />
         </p>
         <p>
           <label for="task">Project Description: </label>
@@ -144,7 +148,7 @@
             cols="40"
           ></textarea>
         </p>
-                <div>
+        <div>
           <button id="cancel-new-project-dialog" value="cancel" type="button">
             Cancel
           </button>

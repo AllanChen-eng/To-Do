@@ -1,7 +1,10 @@
 import { Project } from "./project";
 export function setDialog(project) {
-  const currentProject = project;
-  const setNewProjectBtn = (projectManager) =>{
+  let currentProject = project;
+  const setCurrentProject = (newProject) =>{
+    currentProject = newProject;
+  }
+  const setAddNewProjectBtn = (projectManager) =>{
     const newProject = document.querySelector(".new-project-btn");
     const dialog = document.getElementById("new-project-dialog");
     const cancelBtn = document.querySelector("#cancel-new-project-dialog");
@@ -15,19 +18,17 @@ export function setDialog(project) {
     })
     newProject.addEventListener("click",()=>{
       descriptionValue.value = "My Project Description";
+      titleValue.value = "";
       dialog.showModal();
     })
     form.addEventListener("submit", (e) =>{
       e.preventDefault();
-      console.log( "titleValue:" + titleValue.value + "description" + descriptionValue.value);
       let title = titleValue.value;
       let description = descriptionValue.value;
       let project = new Project(title,description);
       projectManager.addProject(project);
       dialog.close();
     })
-    //prompt user with dialog
-    //submit info for new project
   }
   const setAddTaskBtn = () => {
     const dialog = document.getElementById("task-dialog");
@@ -50,6 +51,7 @@ export function setDialog(project) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       currentProject.addTask(newTask.value);
+      console.log("Just added task to project: " + currentProject.getTitle());
       dialog.close();
     });
   };
@@ -121,17 +123,21 @@ export function setDialog(project) {
     });
   };
   const setProjectBtns = () => {
+    //For when the buttons on page get deleted and need event listeners set again
     setAddTaskBtn();
     setEditProjectBtn();
     setPriorityOptions();
     setCompletionBtn();
   };
   return {
-    setNewProjectBtn,
+    setCurrentProject,
+    setAddNewProjectBtn,
     setAddTaskDialog,
     setEditTaskDialog,
     setEditProjectDialog,
     setPriorityOptions,
+    setEditProjectBtn,
+    setAddTaskBtn,
     setCompletionBtn,
     setProjectBtns,
   };

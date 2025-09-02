@@ -73,6 +73,7 @@ export class Project {
     return this.counter;
   }
   setCurrentTask(newTask){
+    //used to cordinate edit task dialog with specific task pressed
     this.currentTask = newTask;
   }
   getCurrentTask(){

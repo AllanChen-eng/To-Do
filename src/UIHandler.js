@@ -2,7 +2,12 @@ import { setDialog } from "./UserDialogs";
 
 export function ProjectpageUI() {
   const content = document.querySelector("#content");
+  const setCurrentPage = (project) =>{
+    deletePage();
+    createProjectPage(project);
+  }
   const createProjectPage = (project) => {
+    console.log("creating page for project " + project.getTitle());
     const dialog = setDialog(project);
 
     const card = document.createElement("div");
@@ -170,30 +175,25 @@ export function ProjectpageUI() {
   const deletePage = () => {
     content.innerHTML = "";
   };
-  const resetPage = (project) => {
-    const reset = document.querySelector(".add-project-btn");
-    reset.addEventListener("click", () => {
-      deletePage();
-      createProjectPage(project);
-    });
-  };
-  const addProjectToTaskbar = (project) =>{
+
+  const addProjectToTaskbar = (project,dialog) =>{
     const element = document.createElement("li");
     element.textContent = project.getTitle();
     element.addEventListener("click", () =>{
-      deletePage();
-      createProjectPage(project);
+      setCurrentPage(project);
+      dialog.setCurrentProject(project);
     });
     document.querySelector(".project-list").append(element);
   };
+
   return {
+    setCurrentPage,
     addTask,
     createProjectPage,
     populateTaskList,
     setProjectTitle,
     updateProjectDescription,
     deletePage,
-    resetPage,
     addProjectToTaskbar
   };
 }
