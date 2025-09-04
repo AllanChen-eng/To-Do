@@ -6,8 +6,9 @@ import { setDialog } from "./UserDialogs.js";
 import { ProjectManager } from "./ProjectManager.js";
 
 const ui = ProjectpageUI();
-let currentProject = new Project();
+let currentProject = new Project("My First Project", "My first project Description");
 let projectManager = new ProjectManager(currentProject);
+projectManager.initalize();
 
 function curentView(){
     let currentView;

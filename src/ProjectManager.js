@@ -14,6 +14,15 @@ export class ProjectManager {
     this.dialog.setProjectBtns();
     this.dialog.setAddNewProjectBtn(this);
   }
+  initalize() {
+    const project = this.projectList[0]
+    ui.addProjectToTaskbar(project, this.dialog);
+    this.dialog.setCurrentProject(project);
+    ui.setCurrentPage(project);
+    console.log("deleting page");
+    ui.deletePage();
+    ui.createProjectPage(project);
+  }
   getProject(projectTitle) {
     return this.projectList.find(
       (project) => project.getTitle() == projectTitle
@@ -24,7 +33,7 @@ export class ProjectManager {
   }
   addProject(project) {
     this.projectList.push(project);
-    ui.addProjectToTaskbar(project,this.dialog);
+    ui.addProjectToTaskbar(project, this.dialog);
     this.dialog.setCurrentProject(project);
     ui.setCurrentPage(project);
   }

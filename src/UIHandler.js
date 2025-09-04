@@ -7,7 +7,6 @@ export function ProjectpageUI() {
     createProjectPage(project);
   }
   const createProjectPage = (project) => {
-    console.log("creating page for project " + project.getTitle());
     const dialog = setDialog(project);
 
     const card = document.createElement("div");
