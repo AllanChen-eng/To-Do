@@ -65,10 +65,6 @@ export class Project {
       this.taskManager.splice(index, 1);
     }
   }
-  setTaskCompletion(taskID, newValue) {
-    const index = this.taskManager.findIndex((task) => task.getID() == taskID);
-    this.taskManager[index].setCompletion(newValue);
-  }
   getCounter() {
     return this.counter;
   }

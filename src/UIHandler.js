@@ -121,13 +121,14 @@ export function ProjectpageUI() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "finish";
+    if(projectTask.getCompletion()) checkbox.checked = true;
     checkbox.dataset.id = projectTask.getID();
     checkbox.addEventListener("change", () => {
       var index = checkbox.dataset.id;
       if (checkbox.checked) {
-        project.setTaskCompletion(index, true);
+        projectTask.setCompletion(true);
       } else {
-        project.setTaskCompletion(index, false);
+        projectTask.setCompletion(false);
       }
     });
 
