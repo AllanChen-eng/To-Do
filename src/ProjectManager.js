@@ -3,7 +3,7 @@ import { setDialog } from "./UserDialogs.js";
 
 const ui = ProjectpageUI();
 export class ProjectManager {
-  constructor(firstProject) {
+  constructor(firstProject,today) {
     this.projectList = [firstProject];
     this.dialog = setDialog(firstProject);
     this.dialog.setAddTaskDialog();
@@ -13,15 +13,18 @@ export class ProjectManager {
     this.dialog.setCompletionBtn();
     this.dialog.setProjectBtns();
     this.dialog.setAddNewProjectBtn(this);
+    ui.setTodayProjectEventListener(this);
+    this.today = today;
   }
   initalize() {
     const project = this.projectList[0]
     ui.addProjectToTaskbar(project, this.dialog);
     this.dialog.setCurrentProject(project);
     ui.setCurrentPage(project);
-    console.log("deleting page");
-    ui.deletePage();
-    ui.createProjectPage(project);
+  }
+  selectTodayPage(){
+    this.dialog.setCurrentProject(this.today);
+    ui.createTodayPage(this.today,this.dialog);
   }
   getProject(projectTitle) {
     return this.projectList.find(

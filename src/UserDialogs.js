@@ -139,6 +139,6 @@ export function setDialog(project) {
     setEditProjectBtn,
     setAddTaskBtn,
     setCompletionBtn,
-    setProjectBtns,
+    setProjectBtns
   };
 }

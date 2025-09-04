@@ -2,10 +2,56 @@ import { setDialog } from "./UserDialogs";
 
 export function ProjectpageUI() {
   const content = document.querySelector("#content");
-  const setCurrentPage = (project) =>{
+  const setCurrentPage = (project) => {
     deletePage();
     createProjectPage(project);
-  }
+  };
+  const createTodayPage = (project,dialog) => {
+    deletePage();
+
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const header = document.createElement("div");
+    header.classList.add("header");
+
+    const headerLeft = document.createElement("div");
+    headerLeft.classList.add("header-left");
+
+    const projectTitle = document.createElement("h1");
+    projectTitle.classList.add("title");
+    projectTitle.textContent = project.getTitle();
+
+    headerLeft.append(projectTitle);
+
+    header.append(headerLeft);
+
+    const description = document.createElement("div");
+    description.classList.add("description");
+
+    const descriptionText = document.createElement("p");
+
+    description.append(descriptionText);
+
+    const taskList = document.createElement("div");
+    taskList.classList.add("task-list");
+
+    const cardFooter = document.createElement("div");
+    cardFooter.classList.add("card-footer");
+
+    const addTaskBtn = document.createElement("button");
+    addTaskBtn.classList.add("add-task-btn");
+    addTaskBtn.textContent = "Add task";
+
+    cardFooter.append(addTaskBtn);
+
+    card.append(header, description, taskList, cardFooter);
+    content.append(card);
+
+    populateTaskList(project);
+    dialog.setAddTaskBtn();
+  };
+
   const createProjectPage = (project) => {
     const dialog = setDialog(project);
 
@@ -120,7 +166,7 @@ export function ProjectpageUI() {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "finish";
-    if(projectTask.getCompletion()) checkbox.checked = true;
+    if (projectTask.getCompletion()) checkbox.checked = true;
     checkbox.dataset.id = projectTask.getID();
     checkbox.addEventListener("change", () => {
       var index = checkbox.dataset.id;
@@ -176,17 +222,24 @@ export function ProjectpageUI() {
     content.innerHTML = "";
   };
 
-  const addProjectToTaskbar = (project,dialog) =>{
+  const addProjectToTaskbar = (project, dialog) => {
     const element = document.createElement("li");
     element.textContent = project.getTitle();
-    element.addEventListener("click", () =>{
+    element.addEventListener("click", () => {
       setCurrentPage(project);
       dialog.setCurrentProject(project);
     });
     document.querySelector(".project-list").append(element);
   };
 
+  const setTodayProjectEventListener = (manager) => {
+    const today = document.querySelector(".today h3");
+    today.addEventListener("click", () => {
+      manager.selectTodayPage();
+    });
+  };
   return {
+    createTodayPage,
     setCurrentPage,
     addTask,
     createProjectPage,
@@ -194,6 +247,7 @@ export function ProjectpageUI() {
     setProjectTitle,
     updateProjectDescription,
     deletePage,
-    addProjectToTaskbar
+    addProjectToTaskbar,
+    setTodayProjectEventListener,
   };
 }

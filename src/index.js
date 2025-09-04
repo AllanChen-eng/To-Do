@@ -7,7 +7,8 @@ import { ProjectManager } from "./ProjectManager.js";
 
 const ui = ProjectpageUI();
 let currentProject = new Project("My First Project", "My first project Description");
-let projectManager = new ProjectManager(currentProject);
+let today = new Project("Today");
+let projectManager = new ProjectManager(currentProject,today);
 projectManager.initalize();
 
 function curentView(){
