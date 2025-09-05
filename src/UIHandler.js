@@ -6,7 +6,7 @@ export function ProjectpageUI() {
     deletePage();
     createProjectPage(project);
   };
-  const createTodayPage = (project,dialog) => {
+  const showTodayPage = (project,dialog) => {
     deletePage();
 
     const card = document.createElement("div");
@@ -231,7 +231,14 @@ export function ProjectpageUI() {
     });
     document.querySelector(".project-list").append(element);
   };
-
+  const populateProjectTaskbar = (projectList,dialog) =>{
+    projectList.forEach((project) => {
+      addProjectToTaskbar(project,dialog)
+    })
+  }
+  const clearProjectTaskbar = () => {
+        document.querySelector(".project-list").innerHTML = "";
+  }
   const setTodayProjectEventListener = (manager) => {
     const today = document.querySelector(".today h3");
     today.addEventListener("click", () => {
@@ -239,7 +246,7 @@ export function ProjectpageUI() {
     });
   };
   return {
-    createTodayPage,
+    showTodayPage,
     setCurrentPage,
     addTask,
     createProjectPage,
@@ -249,5 +256,7 @@ export function ProjectpageUI() {
     deletePage,
     addProjectToTaskbar,
     setTodayProjectEventListener,
+    populateProjectTaskbar,
+    clearProjectTaskbar
   };
 }

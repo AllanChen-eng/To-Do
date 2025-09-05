@@ -3,7 +3,7 @@ import { setDialog } from "./UserDialogs.js";
 
 const ui = ProjectpageUI();
 export class ProjectManager {
-  constructor(firstProject,today) {
+  constructor(firstProject, today) {
     this.projectList = [firstProject];
     this.dialog = setDialog(firstProject);
     this.dialog.setAddTaskDialog();
@@ -13,18 +13,22 @@ export class ProjectManager {
     this.dialog.setCompletionBtn();
     this.dialog.setProjectBtns();
     this.dialog.setAddNewProjectBtn(this);
+    this.dialog.deleteProjectBtnDialog(this);
     ui.setTodayProjectEventListener(this);
     this.today = today;
   }
   initalize() {
-    const project = this.projectList[0]
+    const project = this.projectList[0];
     ui.addProjectToTaskbar(project, this.dialog);
     this.dialog.setCurrentProject(project);
     ui.setCurrentPage(project);
   }
-  selectTodayPage(){
+  getTodayProject(){
+    return this.today;
+  }
+  selectTodayPage() {
     this.dialog.setCurrentProject(this.today);
-    ui.createTodayPage(this.today,this.dialog);
+    ui.showTodayPage(this.today, this.dialog);
   }
   getProject(projectTitle) {
     return this.projectList.find(
@@ -45,7 +49,13 @@ export class ProjectManager {
       (project) => project.getTitle() == projectTitle
     );
     if (index != -1) {
-      this.taskManager.splice(index, 1);
+      this.projectList.splice(index, 1);
     }
+    this.selectTodayPage();
+    this.updateTaskbar();
+  }
+  updateTaskbar() {
+    ui.clearProjectTaskbar();
+    ui.populateProjectTaskbar(this.getProjectList(), this.dialog);
   }
 }

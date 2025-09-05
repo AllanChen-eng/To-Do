@@ -7,13 +7,7 @@ import { ProjectManager } from "./ProjectManager.js";
 
 const ui = ProjectpageUI();
 let currentProject = new Project("My First Project", "My first project Description");
-let today = new Project("Today");
-let projectManager = new ProjectManager(currentProject,today);
+let today = new Project("Today", "Today page does not have a description!");
+const projectManager = new ProjectManager(currentProject,today);
 projectManager.initalize();
-
-function curentView(){
-    let currentView;
-    const setCurrentView = () =>{
-
-    }
-}
+//projectManager.removeProject("My First Project");

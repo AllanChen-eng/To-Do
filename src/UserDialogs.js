@@ -1,10 +1,10 @@
 import { Project } from "./project";
 export function setDialog(project) {
   let currentProject = project;
-  const setCurrentProject = (newProject) =>{
+  const setCurrentProject = (newProject) => {
     currentProject = newProject;
-  }
-  const setAddNewProjectBtn = (projectManager) =>{
+  };
+  const setAddNewProjectBtn = (projectManager) => {
     const newProject = document.querySelector(".new-project-btn");
     const dialog = document.getElementById("new-project-dialog");
     const cancelBtn = document.querySelector("#cancel-new-project-dialog");
@@ -13,23 +13,23 @@ export function setDialog(project) {
     const titleValue = document.querySelector("#new-project-title");
     const descriptionValue = document.querySelector("#new-project-description");
 
-    cancelBtn.addEventListener("click", () =>{
+    cancelBtn.addEventListener("click", () => {
       dialog.close();
-    })
-    newProject.addEventListener("click",()=>{
+    });
+    newProject.addEventListener("click", () => {
       descriptionValue.value = "My Project Description";
       titleValue.value = "";
       dialog.showModal();
-    })
-    form.addEventListener("submit", (e) =>{
+    });
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       let title = titleValue.value;
       let description = descriptionValue.value;
-      let project = new Project(title,description);
+      let project = new Project(title, description);
       projectManager.addProject(project);
       dialog.close();
-    })
-  }
+    });
+  };
   const setAddTaskBtn = () => {
     const dialog = document.getElementById("task-dialog");
     const newTask = document.querySelector("#addTask");
@@ -51,7 +51,6 @@ export function setDialog(project) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       currentProject.addTask(newTask.value);
-      console.log("Just added task to project: " + currentProject.getTitle());
       dialog.close();
     });
   };
@@ -129,7 +128,16 @@ export function setDialog(project) {
     setPriorityOptions();
     setCompletionBtn();
   };
+  const deleteProjectBtnDialog = (projectManager) => {
+    const del = document.querySelector(".delete-project-btn");
+    const dialogID = document.querySelector("#edit-project-dialog");
+    del.addEventListener("click", () => {
+      projectManager.removeProject(currentProject.getTitle());
+      dialogID.close();
+    });
+  };
   return {
+    deleteProjectBtnDialog,
     setCurrentProject,
     setAddNewProjectBtn,
     setAddTaskDialog,
@@ -139,6 +147,6 @@ export function setDialog(project) {
     setEditProjectBtn,
     setAddTaskBtn,
     setCompletionBtn,
-    setProjectBtns
+    setProjectBtns,
   };
 }
