@@ -3,9 +3,9 @@ import { setDialog } from "./UserDialogs.js";
 
 const ui = ProjectpageUI();
 export class ProjectManager {
-  constructor(firstProject, today) {
-    this.projectList = [firstProject];
-    this.dialog = setDialog(firstProject);
+  constructor(projectArray) {
+    this.projectList = projectArray
+    this.dialog = setDialog(projectArray[1]);
     this.dialog.setAddTaskDialog();
     this.dialog.setEditTaskDialog();
     this.dialog.setEditProjectDialog();
@@ -15,13 +15,11 @@ export class ProjectManager {
     this.dialog.setAddNewProjectBtn(this);
     this.dialog.deleteProjectBtnDialog(this);
     ui.setTodayProjectEventListener(this);
-    this.today = today;
+    this.today = projectArray[0];
   }
   initalize() {
-    const project = this.projectList[0];
-    ui.addProjectToTaskbar(project, this.dialog);
-    this.dialog.setCurrentProject(project);
-    ui.setCurrentPage(project);
+    ui.populateProjectTaskbar(this.projectList,this.dialog);
+    this.selectTodayPage();
   }
   getTodayProject(){
     return this.today;

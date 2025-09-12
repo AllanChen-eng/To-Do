@@ -6,8 +6,32 @@ import { setDialog } from "./UserDialogs.js";
 import { ProjectManager } from "./ProjectManager.js";
 
 const ui = ProjectpageUI();
-let currentProject = new Project("My First Project", "My first project Description");
-let today = new Project("Today", "Today page does not have a description!");
-const projectManager = new ProjectManager(currentProject,today);
+const storage = localStorage.getItem("profile");
+let projectArray;
+if (!storage) {
+  let currentProject = new Project(
+    "My First Project",
+    "My first project Description"
+  );
+  let today = new Project("Today", "");
+  projectArray = [today, currentProject];
+} else {
+  projectArray = JSON.parse(storage).map((data) => {
+    let taskmanager = data.taskManager.map(job=> task(job.job,job.completion,job.id))
+    return new Project(
+      data.title,
+      data.description,
+      data.dueDate,
+      data.priority,
+      taskmanager
+    );
+  });
+}
+const projectManager = new ProjectManager(projectArray);
 projectManager.initalize();
-//projectManager.removeProject("My First Project");
+window.addEventListener("beforeunload", () => {
+  localStorage.setItem(
+    "profile",
+    JSON.stringify(projectManager.getProjectList())
+  );
+});

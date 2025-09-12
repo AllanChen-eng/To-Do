@@ -1,7 +1,4 @@
-export const task = (title) => {
-  let completion = false;
-  let job = title;
-  let id;
+export const task = (job,completion=false,id) => {
 
   const editTask = (newJob) => {
     job = newJob;
@@ -24,5 +21,5 @@ export const task = (title) => {
   const getCompletion = () =>{
     return completion
   }
-  return { editTask, getJob, setJob, getID, setID, getCompletion, setCompletion};
+  return { job, completion, id,editTask, getJob, setJob, getID, setID, getCompletion, setCompletion};
 };

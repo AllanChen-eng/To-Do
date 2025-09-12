@@ -7,16 +7,20 @@ export class Project {
     title = "Project Title",
     description = "My Project Description",
     dueDate = "0/0",
-    priority = "med"
+    priority = "med",
+    taskManager = [],
+    projectCompletion = false,
+    counter = 0,
+    currentTask = ""
   ) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.taskManager = [];
-    this.projectCompletion = false;
-    this.counter = 0;
-    this.currentTask = "";
+    this.taskManager = taskManager;
+    this.projectCompletion = projectCompletion;
+    this.counter = counter;
+    this.currentTask = currentTask;
   }
   getTitle() {
     return this.title;
@@ -50,8 +54,7 @@ export class Project {
   }
   addTask(description) {
     if (description == null || description == "") return;
-    var newTask = task(description);
-    newTask.setID(this.counter);
+    var newTask = task(description,false, this.counter);
     this.counter++;
     this.taskManager.push(newTask);
     ui.addTask(newTask, this);
@@ -60,10 +63,13 @@ export class Project {
     return this.taskManager.find((task) => task.getID() == taskID);
   }
   removeTask(taskID) {
+    console.log("removed task!");
+    console.log(this.taskManager);
     const index = this.taskManager.findIndex((task) => task.getID() == taskID);
     if (index != -1) {
       this.taskManager.splice(index, 1);
     }
+    console.log(index + "vs Task ID" + taskID);
   }
   getCounter() {
     return this.counter;

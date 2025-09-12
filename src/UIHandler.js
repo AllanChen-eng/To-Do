@@ -199,7 +199,8 @@ export function ProjectpageUI() {
     delBtn.textContent = "delete button";
     delBtn.dataset.id = projectTask.getID();
     delBtn.addEventListener("click", (e) => {
-      const index = e.target.dataset.id;
+      const index = e.currentTarget.dataset.id;
+      console.log("target:" + e.currentTarget.dataset.id);
       const content = document.querySelector(`.task[data-id="${index}"]`);
       project.removeTask(index);
       content.remove();
@@ -233,7 +234,9 @@ export function ProjectpageUI() {
   };
   const populateProjectTaskbar = (projectList,dialog) =>{
     projectList.forEach((project) => {
+      if(project.getTitle() != "Today"){
       addProjectToTaskbar(project,dialog)
+      }
     })
   }
   const clearProjectTaskbar = () => {
