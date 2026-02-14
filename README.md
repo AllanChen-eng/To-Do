@@ -17,7 +17,7 @@ Progress on features:
 - [x] Delete project
 - [x] Add new project
 - [ ] Dynamic sidebar - project labeling based on priority
-- [ ] Local storage
+- [x] Local storage
 
 Further Development:
 - [ ] Change color based on priorities 
