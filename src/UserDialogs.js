@@ -116,9 +116,6 @@ export function setDialog(project) {
     const complete = document.querySelector(".mark-project-finish-btn");
     complete.addEventListener("click", () => {
       currentProject.swapProjectCompletion();
-      console.log(
-        "project completion marked: " + currentProject.getCompletion()
-      );
     });
   };
   const setProjectBtns = () => {

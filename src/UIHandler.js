@@ -200,7 +200,6 @@ export function ProjectpageUI() {
     delBtn.dataset.id = projectTask.getID();
     delBtn.addEventListener("click", (e) => {
       const index = e.currentTarget.dataset.id;
-      console.log("target:" + e.currentTarget.dataset.id);
       const content = document.querySelector(`.task[data-id="${index}"]`);
       project.removeTask(index);
       content.remove();

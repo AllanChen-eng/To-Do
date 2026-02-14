@@ -63,8 +63,6 @@ export class Project {
     return this.taskManager.find((task) => task.getID() == taskID);
   }
   removeTask(taskID) {
-    console.log("removed task!");
-    console.log(this.taskManager);
     const index = this.taskManager.findIndex((task) => task.getID() == taskID);
     if (index != -1) {
       this.taskManager.splice(index, 1);
