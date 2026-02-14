@@ -1,6 +1,6 @@
 # To-Do
 
-Live Preview: TBD
+Live Preview: [TBD](https://allanchen-eng.github.io/To-Do/)
 
 Learning Outcome: Local Storage, Dom Manipulation, SOLID design principles, Loose Coupling, Modular Design Principles.
 
