@@ -1,11 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-<script defer src="main.js"></script></head>
-<body>
-    
-</body>
+  <script defer src="main.js"></script></head>
+  <body>
+    <nav>
+      <ul>
+        <li class="app-name"><h3>To-Do</h3></li>
+        <li class="today">
+          <h3>Today</h3>
+          <p class="due">Due Date</p>
+        </li>
+        <li class="projects">
+          <div class="project-header">
+            <h3>Projects</h3>
+            <button class="new-project-btn">New Project</button>
+          </div>
+          <ul class="project-list"></ul>
+        </li>
+        <li>
+          <ul class="priority">
+            <li id="high">High Priority</li>
+            <li id="med">Medium Priority</li>
+            <li id="low">Low Priority</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="content">
+      <div class="card">
+        <div class="header">
+          <div class="header-left">
+            <input type="checkbox" id="finish" />
+            <h1 class="title">Project Title</h1>
+          </div>
+          <div class="header-right">
+            <label for="priority">Priority:</label>
+            <select id="project-priority" name="priority">
+              <option value="high">High</option>
+              <option value="medium" selected="selected">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <button class="edit-project-btn">Edit Project</button>
+          </div>
+        </div>
+        <div class="description">
+          <p>My Project</p>
+        </div>
+        <div class="task-list">
+          <div class="task" data-id="9999">
+            <div class="task-text">
+              <input type="checkbox" id="finish" />
+              <p>Sample Task</p>
+            </div>
+            <div>
+              <button class="edit-btn">edit button</button>
+              <button class="del-btn">delete button</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="add-task-btn">Add task</button>
+          <button class="mark-project-finish-btn">Mark finished</button>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <a class="links" href="https://github.com/AllanChen-eng">
+        Create by Allan</a
+      >
+    </div>
+    <dialog class="dialog" id="task-dialog">
+      <form class="task-form">
+        <p>
+          <input type="text" id="addTask" name="task" placeholder="task" />
+        </p>
+        <div>
+          <button id="cancelDialog" value="cancel" type="button">Cancel</button>
+          <button type="submit" id="confirmBtn" value="default">
+            Add Task
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="edit-task-dialog">
+      <form class="edit-task-form">
+        <p>
+          <input type="text" id="edit-task" name="task" placeholder="Task" />
+        </p>
+        <div>
+          <button id="cancelTaskEditDialog" value="cancel" type="button">
+            Cancel
+          </button>
+          <button type="submit" id="confirmBtn" value="default">
+            Edit Task
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="edit-project-dialog">
+      <form class="edit-project-form">
+        <p>
+          <label for="project-title">Project Title: </label>
+          <input type="text" id="change-title" name="project-title" />
+        </p>
+        <p>
+          <label for="task">Project Description: </label>
+          <textarea
+            id="change-description"
+            name="description"
+            rows="5"
+            cols="40"
+          ></textarea>
+        </p>
+        <button type="button" class="delete-project-btn">Delete Project</button>
+        <div>
+          <button id="cancel-project-edit-dialog" value="cancel" type="button">
+            Cancel
+          </button>
+          <button type="submit" id="confirmBtn" value="default">Accept</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog class="dialog" id="new-project-dialog">
+      <form class="new-project-form">
+        <p>
+          <label for="new-project-title">Project Title: </label>
+          <input
+            type="text"
+            id="new-project-title"
+            name="new-project-title"
+            placeholder="Title"
+            required
+          />
+        </p>
+        <p>
+          <label for="task">Project Description: </label>
+          <textarea
+            id="new-project-description"
+            name="description"
+            rows="5"
+            cols="40"
+          ></textarea>
+        </p>
+        <div>
+          <button id="cancel-new-project-dialog" value="cancel" type="button">
+            Cancel
+          </button>
+          <button type="submit" id="confirmBtn" value="default">Create</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
 </html>
